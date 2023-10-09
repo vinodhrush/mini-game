@@ -1,0 +1,114 @@
+[gd_scene load_steps=16 format=3 uid="uid://c043iwufhd4ao"]
+
+[ext_resource type="Script" path="res://crash/plane_crash.gd" id="1_ls5tn"]
+[ext_resource type="Texture2D" uid="uid://cdc3mdna1bxoo" path="res://tiles/flame-01.png" id="2_vopga"]
+[ext_resource type="Texture2D" uid="uid://d4k0wxf3r3u4w" path="res://crash/explosion_3.png" id="3_o5vyi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8ier"]
+atlas = ExtResource("2_vopga")
+region = Rect2(0, 0, 133, 178)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mm6fr"]
+atlas = ExtResource("2_vopga")
+region = Rect2(133, 0, 133, 178)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p54ob"]
+atlas = ExtResource("2_vopga")
+region = Rect2(266, 0, 133, 178)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbfue"]
+atlas = ExtResource("3_o5vyi")
+region = Rect2(0, 2048, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3eevj"]
+atlas = ExtResource("3_o5vyi")
+region = Rect2(3584, 2048, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpvw7"]
+atlas = ExtResource("3_o5vyi")
+region = Rect2(2560, 2560, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdg8g"]
+atlas = ExtResource("3_o5vyi")
+region = Rect2(3584, 2560, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43ntp"]
+atlas = ExtResource("3_o5vyi")
+region = Rect2(2560, 3584, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psg3k"]
+atlas = ExtResource("3_o5vyi")
+region = Rect2(3072, 3584, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ewn2"]
+atlas = ExtResource("3_o5vyi")
+region = Rect2(3584, 3584, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pf1ru"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8ier")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mm6fr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p54ob")
+}],
+"loop": true,
+"name": &"burnin",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p54ob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbfue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3eevj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpvw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdg8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43ntp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psg3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ewn2")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 30.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k1o2l"]
+radius = 35.468
+height = 72.9064
+
+[node name="Plane_crash" type="Area2D"]
+scale = Vector2(0.97, 0.97)
+collision_mask = 4
+script = ExtResource("1_ls5tn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(9.27835, -1.03093)
+sprite_frames = SubResource("SpriteFrames_pf1ru")
+animation = &"explode"
+autoplay = "burnin"
+frame = 7
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.92611, 30.5419)
+shape = SubResource("CapsuleShape2D_k1o2l")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

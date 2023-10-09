@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw37qhswrf46g"]
+
+[ext_resource type="Texture2D" uid="uid://bf507hiagbopk" path="res://nature_3/empty.png" id="1_xum1e"]
+[ext_resource type="Texture2D" uid="uid://ds5u72fawjaxs" path="res://nature_3/cloud.png" id="2_mcvq1"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+position = Vector2(-15, -72)
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(714, 463)
+scale = Vector2(2.38724, 2.45968)
+texture = ExtResource("1_xum1e")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(0, 700)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(696, 390.25)
+scale = Vector2(2.41204, 2.41204)
+texture = ExtResource("2_mcvq1")

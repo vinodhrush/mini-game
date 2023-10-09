@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dv34ya86fyd4y"
+path="res://.godot/imported/Heroic Military Background Music - RocaMusic.mp3-b45d8e125b5efb1a49bc97a2ef88fba8.mp3str"
+
+[deps]
+
+source_file="res://music/Heroic Military Background Music - RocaMusic.mp3"
+dest_files=["res://.godot/imported/Heroic Military Background Music - RocaMusic.mp3-b45d8e125b5efb1a49bc97a2ef88fba8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

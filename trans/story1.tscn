@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvl0wefomyny3"]
+
+[ext_resource type="Script" path="res://CanvasLayerscript.gd" id="1_d72n4"]
+[ext_resource type="Texture2D" uid="uid://cbomesg5hjglj" path="res://trans/bgIMG.png" id="2_wgaxf"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_d72n4")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+modulate = Color(0.0745098, 0.0745098, 0.0745098, 1)
+position = Vector2(684.022, 393)
+scale = Vector2(1.19688, 1.19687)
+texture = ExtResource("2_wgaxf")

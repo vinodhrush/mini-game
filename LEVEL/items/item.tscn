@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c03j2mvshsilb"]
+
+[ext_resource type="Script" path="res://LEVEL/items/itemscript.gd" id="1_5wmtf"]
+[ext_resource type="Texture2D" uid="uid://bnr8pwi7usxvl" path="res://tiles/orb2.png" id="1_das3w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ddp8y"]
+radius = 43.9318
+
+[node name="Item" type="Area2D"]
+collision_mask = 15
+script = ExtResource("1_5wmtf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_das3w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_ddp8y")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

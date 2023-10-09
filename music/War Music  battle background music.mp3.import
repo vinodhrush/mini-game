@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://5mu0crq3bh5p"
+path="res://.godot/imported/War Music  battle background music.mp3-3c618318f04bcdfc08772f4130493e47.mp3str"
+
+[deps]
+
+source_file="res://music/War Music  battle background music.mp3"
+dest_files=["res://.godot/imported/War Music  battle background music.mp3-3c618318f04bcdfc08772f4130493e47.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

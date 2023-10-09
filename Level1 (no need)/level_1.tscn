@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://8eg5d03otaeq"]
+
+[ext_resource type="Script" path="res://Level1 (no need)/level_1.gd" id="1_f5cjp"]
+[ext_resource type="Texture2D" uid="uid://bf507hiagbopk" path="res://nature_3/empty.png" id="1_oaesq"]
+[ext_resource type="Script" path="res://Level1 (no need)/CloudLayer.gd" id="2_udelo"]
+[ext_resource type="Texture2D" uid="uid://ds5u72fawjaxs" path="res://nature_3/cloud.png" id="2_ygwxv"]
+[ext_resource type="PackedScene" uid="uid://cwfemavr1sdfg" path="res://player/skydivePlayer.tscn" id="5_lyhdv"]
+[ext_resource type="PackedScene" path="res://player/bullet/static_body_2d.tscn" id="6_ljk7p"]
+
+[node name="Level1" type="Node2D"]
+position = Vector2(-117, 11)
+script = ExtResource("1_f5cjp")
+metadata/_edit_vertical_guides_ = [1367.0, 1367.0, 2209.0]
+metadata/_edit_horizontal_guides_ = [1679.0, 2017.0, 4016.0, 4013.0]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(683, 382)
+scale = Vector2(2.36728, 2.36728)
+texture = ExtResource("1_oaesq")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(0, 711.345)
+script = ExtResource("2_udelo")
+cloud_speed = -20
+
+[node name="1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(683, 382)
+scale = Vector2(2.36728, 2.36728)
+texture = ExtResource("2_ygwxv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(788.87, 106.417)
+scale = Vector2(0.956667, 0.956667)
+zoom = Vector2(1.25, 1.25)
+limit_left = -5
+limit_right = 1367
+position_smoothing_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="SpawnArea" type="ReferenceRect" parent="."]
+offset_left = 117.0
+offset_top = 4006.0
+offset_right = 1485.0
+offset_bottom = 4340.0
+
+[node name="Marker2D" type="Marker2D" parent="SpawnArea"]
+position = Vector2(719, 340)
+
+[node name="SkydivePlayer" parent="." instance=ExtResource("5_lyhdv")]
+position = Vector2(786, -61)
+scale = Vector2(1.435, 1.435)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="SkydivePlayer"]
+position = Vector2(1.99988, 116.667)
+scale = Vector2(0.666667, 0.666667)
+remote_path = NodePath("../../Camera2D")
+
+[node name="StaticBody2D" parent="." instance=ExtResource("6_ljk7p")]
+position = Vector2(720, 178)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

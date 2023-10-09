@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdooc8sa1wtel"]
+
+[ext_resource type="VideoStream" path="res://trans/Brown-Minimal-Fashion-Autumn-Presentation.ogv" id="1_do06v"]
+[ext_resource type="Script" path="res://trans/videos.gd" id="1_p8kbp"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_p8kbp")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_right = 1377.0
+offset_bottom = 763.0
+scale = Vector2(0.71, 0.71)
+stream = ExtResource("1_do06v")
+autoplay = true

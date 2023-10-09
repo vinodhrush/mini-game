@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://bce5oqsikunf5"]
+
+[ext_resource type="Texture2D" uid="uid://ctms2s1e0n4k2" path="res://UI/bullet.png" id="1_g5l2c"]
+[ext_resource type="Script" path="res://UI/canvas_layerscript.gd" id="1_tn5ip"]
+[ext_resource type="Texture2D" uid="uid://cii8o3fp4wwn" path="res://UI/bg.png" id="2_eqnet"]
+[ext_resource type="Texture2D" uid="uid://c0g2c3imh42bv" path="res://UI/progress.png" id="3_fdtnt"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_tn5ip")
+
+[node name="BulletCounter" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.053
+anchor_top = 0.874
+anchor_right = 0.053
+anchor_bottom = 0.874
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BulletCounter"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="BulletCounter/VBoxContainer"]
+layout_mode = 2
+text = "20"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BulletCounter/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_g5l2c")
+expand_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 300.0
+offset_bottom = 33.0
+theme_override_constants/margin_left = 85
+theme_override_constants/margin_top = 45
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer"]
+layout_mode = 2
+value = 50.0
+texture_under = ExtResource("2_eqnet")
+texture_progress = ExtResource("3_fdtnt")
